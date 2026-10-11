@@ -37,5 +37,13 @@
     "x402-axios": {
       "optional": true
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daedalusdevelopmentgroup/ddg-tools.git"
+  },
+  "homepage": "https://github.com/daedalusdevelopmentgroup/ddg-tools#readme",
+  "bugs": {
+    "url": "https://github.com/daedalusdevelopmentgroup/ddg-tools/issues"
   }
 }
