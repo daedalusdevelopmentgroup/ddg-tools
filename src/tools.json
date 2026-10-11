@@ -1,0 +1,764 @@
+{
+  "base_url": "https://agents.daedalusdevelopmentgroup.com",
+  "generated_from": "DDG pricing.json services catalog",
+  "tool_count": 25,
+  "tools": [
+    {
+      "name": "securityAuditDeep",
+      "method": "POST",
+      "path": "/v1/security-audit/deep",
+      "price_usd": 0.01,
+      "free": false,
+      "category": "security",
+      "description": "Premium deep security audit of agent-supplied code or MCP tool configs: 16 detector families, evidence with line context, per-finding remediation, risk score, server-signed certificate.",
+      "openai_schema": {
+        "type": "function",
+        "function": {
+          "name": "securityAuditDeep",
+          "description": "Premium deep security audit of agent-supplied code or MCP tool configs: 16 detector families, evidence with line context, per-finding remediation, risk score, server-signed certificate.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "config": {
+                "type": "object"
+              },
+              "target": {
+                "type": "string"
+              },
+              "depth": {
+                "type": "string",
+                "enum": [
+                  "standard",
+                  "deep"
+                ]
+              }
+            },
+            "required": [
+              "code"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "promptInjectionScan",
+      "method": "POST",
+      "path": "/v1/prompt-injection-scan",
+      "price_usd": 0.01,
+      "free": false,
+      "category": "general",
+      "description": "Prompt-injection and tool-exfiltration scan: risk_summary, exploit_reproduction_steps, prompt/tool-boundary mitigations.",
+      "openai_schema": {
+        "type": "function",
+        "function": {
+          "name": "promptInjectionScan",
+          "description": "Prompt-injection and tool-exfiltration scan: risk_summary, exploit_reproduction_steps, prompt/tool-boundary mitigations.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "content": {
+                "type": "string"
+              },
+              "content_type": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "content"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "mcpToolSecurityAudit",
+      "method": "POST",
+      "path": "/v1/mcp-tool-security-audit",
+      "price_usd": 0.01,
+      "free": false,
+      "category": "general",
+      "description": "MCP/tool permission and auth-boundary audit: tool-risk matrix, dangerous capability flags, prompt-injection exposure.",
+      "openai_schema": {
+        "type": "function",
+        "function": {
+          "name": "mcpToolSecurityAudit",
+          "description": "MCP/tool permission and auth-boundary audit: tool-risk matrix, dangerous capability flags, prompt-injection exposure.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "server": {
+                "type": "string"
+              },
+              "tools": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "config": {
+                "type": "object"
+              }
+            },
+            "required": [
+              "server"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "secretLeakApiKeyScan",
+      "method": "POST",
+      "path": "/v1/secret-leak-api-key-scan",
+      "price_usd": 0.01,
+      "free": false,
+      "category": "general",
+      "description": "API-key/secret leak and credential boundary scan: redacted_secret_findings, leak_paths, rotation_priority.",
+      "openai_schema": {
+        "type": "function",
+        "function": {
+          "name": "secretLeakApiKeyScan",
+          "description": "API-key/secret leak and credential boundary scan: redacted_secret_findings, leak_paths, rotation_priority.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "content": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "content"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "productionSecurityAudit",
+      "method": "POST",
+      "path": "/v1/production-security-audit",
+      "price_usd": 0.01,
+      "free": false,
+      "category": "general",
+      "description": "Productionized public-surface security audit for AI-agent services, MCP/tool servers, OpenAPI/llms.txt catalogs, dependency manifests, prompt-injection exposure, public endpoints, and payment/check-out safety. Ordered by AI agents through /v1/order-intake; operator-reviewed before fulfillment.",
+      "openai_schema": {
+        "type": "function",
+        "function": {
+          "name": "productionSecurityAudit",
+          "description": "Productionized public-surface security audit for AI-agent services, MCP/tool servers, OpenAPI/llms.txt catalogs, dependency manifests, prompt-injection exposure, public endpoints, and payment/check-out safety. Ordered by AI agents through /v1/order-intake; operator-reviewed before fulfillment.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "target": {
+                "type": "string"
+              },
+              "scope": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "target"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "receiptsIssue",
+      "method": "POST",
+      "path": "/v1/receipts/issue",
+      "price_usd": 0.01,
+      "free": false,
+      "category": "agent-services",
+      "description": "Issue a portable Ed25519-signed service receipt for any completed interaction.",
+      "openai_schema": {
+        "type": "function",
+        "function": {
+          "name": "receiptsIssue",
+          "description": "Issue a portable Ed25519-signed service receipt for any completed interaction.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "service_id": {
+                "type": "string"
+              },
+              "agent_id": {
+                "type": "string"
+              },
+              "payment_ref": {
+                "type": "string"
+              },
+              "payload": {
+                "type": "object"
+              }
+            },
+            "required": [
+              "service_id"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "receiptsVerify",
+      "method": "POST",
+      "path": "/v1/receipts/verify",
+      "price_usd": 0.01,
+      "free": false,
+      "category": "agent-services",
+      "description": "Verify any DDG receipt: signature + payload integrity + state.",
+      "openai_schema": {
+        "type": "function",
+        "function": {
+          "name": "receiptsVerify",
+          "description": "Verify any DDG receipt: signature + payload integrity + state.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "receipt": {
+                "type": "object"
+              }
+            },
+            "required": [
+              "receipt"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "receiptsBundle",
+      "method": "POST",
+      "path": "/v1/receipts/bundle",
+      "price_usd": 0.01,
+      "free": false,
+      "category": "agent-services",
+      "description": "Merkle-bundle up to 200 receipts into one signed root (portable reputation).",
+      "openai_schema": {
+        "type": "function",
+        "function": {
+          "name": "receiptsBundle",
+          "description": "Merkle-bundle up to 200 receipts into one signed root (portable reputation).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "receipts": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              }
+            },
+            "required": [
+              "receipts"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "verifyClaim",
+      "method": "POST",
+      "path": "/v1/verify/claim",
+      "price_usd": 0.01,
+      "free": false,
+      "category": "verification",
+      "description": "Deterministic claim-vs-source verification (CVE real? package vulnerable/exists? domain resolves? TLS cert valid? URL reachable?) against authoritative sources. Boolean verdict + evidence, no LLM.",
+      "openai_schema": {
+        "type": "function",
+        "function": {
+          "name": "verifyClaim",
+          "description": "Deterministic claim-vs-source verification (CVE real? package vulnerable/exists? domain resolves? TLS cert valid? URL reachable?) against authoritative sources. Boolean verdict + evidence, no LLM.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "claim": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "claim"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "trustCheck",
+      "method": "POST",
+      "path": "/v1/trust/check",
+      "price_usd": 0.01,
+      "free": false,
+      "category": "verification",
+      "description": "Adversarial pre-flight verification of any x402 endpoint BEFORE an agent pays it: a real 402-handshake probe (GET, then POST fallback) with tolerant x402 v1/v2 envelope + optional MPP challenge parsing, diffed against the last stored probe for that URL to raise drift / payto_rotated, SSRF-guarded (https only, ports 443/8443, private ranges blocked) and returned as an HMAC-SHA256 signed verdict. Cache: 10-minute per-URL TTL (lowered by a watch); a TTL hit is served from the stored envelope and marked cached:true.",
+      "openai_schema": {
+        "type": "function",
+        "function": {
+          "name": "trustCheck",
+          "description": "Adversarial pre-flight verification of any x402 endpoint BEFORE an agent pays it: a real 402-handshake probe (GET, then POST fallback) with tolerant x402 v1/v2 envelope + optional MPP challenge parsing, diffed against the last stored probe for that URL to raise drift / payto_rotated, SSRF-guarded (https only, ports 443/8443, private ranges blocked) and returned as an HMAC-SHA256 signed verdict. Cache: 10-minute per-URL TTL (lowered by a watch); a TTL hit is served from the stored envelope and marked cached:true.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "expected": {
+                "type": "object"
+              }
+            },
+            "required": [
+              "url"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "chainsRpc",
+      "method": "POST",
+      "path": "/v1/chains/rpc",
+      "price_usd": 0.01,
+      "free": false,
+      "category": "blockchain",
+      "description": "One gate-verified keyless read op on one chain (ethereum, base, polygon, arbitrum, optimism, avalanche, bnb, unichain). Read-only method allowlist, chainId-verified endpoints, local reth first for Ethereum when healthy. 1 MiB cap, 8s timeout.",
+      "openai_schema": {
+        "type": "function",
+        "function": {
+          "name": "chainsRpc",
+          "description": "One gate-verified keyless read op on one chain (ethereum, base, polygon, arbitrum, optimism, avalanche, bnb, unichain). Read-only method allowlist, chainId-verified endpoints, local reth first for Ethereum when healthy. 1 MiB cap, 8s timeout.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "chain": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string"
+              },
+              "params": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "chain",
+              "method"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "chainsAddress",
+      "method": "POST",
+      "path": "/v1/chains/address",
+      "price_usd": 0.01,
+      "free": false,
+      "category": "blockchain",
+      "description": "Address snapshot on any supported chain: balance_wei, nonce, is_contract (chainId-gated backend).",
+      "openai_schema": {
+        "type": "function",
+        "function": {
+          "name": "chainsAddress",
+          "description": "Address snapshot on any supported chain: balance_wei, nonce, is_contract (chainId-gated backend).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "chain": {
+                "type": "string"
+              },
+              "address": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "chain",
+              "address"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "chainsGas",
+      "method": "POST",
+      "path": "/v1/chains/gas",
+      "price_usd": 0.01,
+      "free": false,
+      "category": "blockchain",
+      "description": "Gas snapshot on any supported chain: gas_price, max_priority_fee, short fee_history (chainId-gated backend).",
+      "openai_schema": {
+        "type": "function",
+        "function": {
+          "name": "chainsGas",
+          "description": "Gas snapshot on any supported chain: gas_price, max_priority_fee, short fee_history (chainId-gated backend).",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "chain": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "chain"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "chainsTokenBalance",
+      "method": "POST",
+      "path": "/v1/chains/token-balance",
+      "price_usd": 0.01,
+      "free": false,
+      "category": "blockchain",
+      "description": "ERC-20 balanceOf + metadata (symbol/decimals/name) on any supported chain, gate-verified eth_call, exact formatted amount.",
+      "openai_schema": {
+        "type": "function",
+        "function": {
+          "name": "chainsTokenBalance",
+          "description": "ERC-20 balanceOf + metadata (symbol/decimals/name) on any supported chain, gate-verified eth_call, exact formatted amount.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "chain": {
+                "type": "string"
+              },
+              "token": {
+                "type": "string"
+              },
+              "address": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "chain",
+              "token",
+              "address"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "contractAbi",
+      "method": "POST",
+      "path": "/v1/contract-abi",
+      "price_usd": 0.01,
+      "free": false,
+      "category": "blockchain",
+      "description": "Fetch verified smart contract ABI from block explorers (Base, Ethereum, Optim...",
+      "openai_schema": {
+        "type": "function",
+        "function": {
+          "name": "contractAbi",
+          "description": "Fetch verified smart contract ABI from block explorers (Base, Ethereum, Optim...",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "chain": {
+                "type": "string"
+              },
+              "address": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "chain",
+              "address"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "complianceSanctions",
+      "method": "POST",
+      "path": "/v1/compliance/sanctions",
+      "price_usd": 0.01,
+      "free": false,
+      "category": "compliance",
+      "description": "Sanctions screen with PINNED list versions (OFAC SDN consolidated CSV + EU consolidated list): verdict clear|match + per-list version/date/rows/matches; wallet remarks scan included. Ed25519-signed receipt.",
+      "openai_schema": {
+        "type": "function",
+        "function": {
+          "name": "complianceSanctions",
+          "description": "Sanctions screen with PINNED list versions (OFAC SDN consolidated CSV + EU consolidated list): verdict clear|match + per-list version/date/rows/matches; wallet remarks scan included. Ed25519-signed receipt.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "address": {
+                "type": "string"
+              },
+              "entity": {
+                "type": "string"
+              }
+            },
+            "required": []
+          }
+        }
+      }
+    },
+    {
+      "name": "complianceScreenWallet",
+      "method": "POST",
+      "path": "/v1/compliance/screen-wallet",
+      "price_usd": 0.01,
+      "free": false,
+      "category": "general",
+      "description": "Screen a wallet address against the OFAC SDN digital-currency list (1,066 addresses, 20 chains); block/clear verdict with Ed25519-signed attestation.",
+      "openai_schema": {
+        "type": "function",
+        "function": {
+          "name": "complianceScreenWallet",
+          "description": "Screen a wallet address against the OFAC SDN digital-currency list (1,066 addresses, 20 chains); block/clear verdict with Ed25519-signed attestation.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string"
+              },
+              "chain": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "address"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "x402Preflight",
+      "method": "POST",
+      "path": "/v1/402/preflight",
+      "price_usd": 0.01,
+      "free": false,
+      "category": "compliance",
+      "description": "x402 challenge compliance pre-flight: probes an endpoint's 402 envelope and verdicts it against v1/v2 + MPP shape rules (accepts[], network format, atomic amounts, payTo). Signed verdict.",
+      "openai_schema": {
+        "type": "function",
+        "function": {
+          "name": "x402Preflight",
+          "description": "x402 challenge compliance pre-flight: probes an endpoint's 402 envelope and verdicts it against v1/v2 + MPP shape rules (accepts[], network format, atomic amounts, payTo). Signed verdict.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "url": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "url"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "agentRegistry",
+      "method": "POST",
+      "path": "/v1/agent-registry",
+      "price_usd": 0.01,
+      "free": false,
+      "category": "discovery",
+      "description": "Search or list AI agents in the DDG agent directory. Registration is free.",
+      "openai_schema": {
+        "type": "function",
+        "function": {
+          "name": "agentRegistry",
+          "description": "Search or list AI agents in the DDG agent directory. Registration is free.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string",
+                "enum": [
+                  "search",
+                  "list",
+                  "register"
+                ]
+              },
+              "query": {
+                "type": "string"
+              },
+              "limit": {
+                "type": "integer"
+              }
+            },
+            "required": []
+          }
+        }
+      }
+    },
+    {
+      "name": "webSearch",
+      "method": "POST",
+      "path": "/v1/web-search",
+      "price_usd": 0.01,
+      "free": false,
+      "category": "search",
+      "description": "Search the web and return structured JSON results. Aggregates 20+ search engi...",
+      "openai_schema": {
+        "type": "function",
+        "function": {
+          "name": "webSearch",
+          "description": "Search the web and return structured JSON results. Aggregates 20+ search engi...",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "query": {
+                "type": "string"
+              },
+              "limit": {
+                "type": "integer"
+              },
+              "recency": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "query"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "agentCard",
+      "method": "GET",
+      "path": "/.well-known/agent-card.json",
+      "price_usd": 0.0,
+      "free": true,
+      "category": "discovery",
+      "description": "Publish the A2A 1.0 Agent Card.",
+      "openai_schema": {
+        "type": "function",
+        "function": {
+          "name": "agentCard",
+          "description": "Publish the A2A 1.0 Agent Card.",
+          "parameters": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          }
+        }
+      }
+    },
+    {
+      "name": "x402Metadata",
+      "method": "GET",
+      "path": "/.well-known/x402",
+      "price_usd": 0.0,
+      "free": true,
+      "category": "discovery",
+      "description": "Free x402 discovery document: protocol version, accepted payment networks/assets (USDC on Base/Polygon/Arbitrum/World/Solana), and payable resources. Machine-readable payment metadata for AI agents.",
+      "openai_schema": {
+        "type": "function",
+        "function": {
+          "name": "x402Metadata",
+          "description": "Free x402 discovery document: protocol version, accepted payment networks/assets (USDC on Base/Polygon/Arbitrum/World/Solana), and payable resources. Machine-readable payment metadata for AI agents.",
+          "parameters": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          }
+        }
+      }
+    },
+    {
+      "name": "attestationJwks",
+      "method": "GET",
+      "path": "/.well-known/ddg-attestation-jwks.json",
+      "price_usd": 0.0,
+      "free": true,
+      "category": "provenance",
+      "description": "Publish the DDG Ed25519 attestation verification key.",
+      "openai_schema": {
+        "type": "function",
+        "function": {
+          "name": "attestationJwks",
+          "description": "Publish the DDG Ed25519 attestation verification key.",
+          "parameters": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          }
+        }
+      }
+    },
+    {
+      "name": "refundPolicy",
+      "method": "GET",
+      "path": "/refund-policy",
+      "price_usd": 0.0,
+      "free": true,
+      "category": "discovery",
+      "description": "Machine-readable policy: refunds are manual strict reversals; approved revers...",
+      "openai_schema": {
+        "type": "function",
+        "function": {
+          "name": "refundPolicy",
+          "description": "Machine-readable policy: refunds are manual strict reversals; approved revers...",
+          "parameters": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          }
+        }
+      }
+    },
+    {
+      "name": "servicesSearch",
+      "method": "POST",
+      "path": "/v1/services/search",
+      "price_usd": 0.0,
+      "free": true,
+      "category": "discovery",
+      "description": "Rank up to five available DDG services for an objective.",
+      "openai_schema": {
+        "type": "function",
+        "function": {
+          "name": "servicesSearch",
+          "description": "Rank up to five available DDG services for an objective.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "objective": {
+                "type": "string"
+              },
+              "limit": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "objective"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

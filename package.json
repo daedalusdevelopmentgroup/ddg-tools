@@ -1,0 +1,41 @@
+{
+  "name": "ddg-tools",
+  "version": "0.1.0",
+  "description": "Zero-dependency client for Daedalus Development Group's x402-payable AI-agent tools, with OpenAI function-calling schemas.",
+  "type": "module",
+  "license": "MIT",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./tools.json": "./src/tools.json"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "x402",
+    "ai-agents",
+    "mcp",
+    "tools",
+    "api",
+    "usdc",
+    "machine-payable"
+  ],
+  "files": [
+    "src",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test test/"
+  },
+  "peerDependencies": {
+    "x402-axios": "^1.2.1"
+  },
+  "peerDependenciesMeta": {
+    "x402-axios": {
+      "optional": true
+    }
+  }
+}
