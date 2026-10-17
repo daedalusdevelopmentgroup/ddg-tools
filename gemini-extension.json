@@ -1,0 +1,12 @@
+{
+  "name": "ddg-agent-services",
+  "version": "1.28.0",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "ddg-agent-services": {
+      "httpUrl": "https://mcp.daedalusdevelopmentgroup.com/mcp",
+      "description": "Payment-aware MCP wrapper: 421 x402-paid agent APIs (audits, UCP/AP2-ERC8004-MPP verification, search, enrichment). Freemium.",
+      "trust": false
+    }
+  }
+}
